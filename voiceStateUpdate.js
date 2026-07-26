@@ -1,0 +1,2 @@
+const { memberData } = require('../utils/db');
+module.exports = { name: 'voiceStateUpdate', async execute(oldState, newState) { const member = newState.member || oldState.member; if (!member || member.user.bot) return; const data = await memberData(member.guild.id, member.id); if (!oldState.channelId && newState.channelId) data.voiceJoinedAt = new Date(); if (oldState.channelId && !newState.channelId && data.voiceJoinedAt) { data.voiceSeconds += Math.max(0, (Date.now() - data.voiceJoinedAt.getTime()) / 1000); data.voiceJoinedAt = undefined; } await data.save(); } };
