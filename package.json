@@ -1,17 +1,10 @@
 {
-  "name": "helpy-discord-bot",
+  "name": "helpy-discord-dashboard",
   "version": "1.0.0",
-  "private": true,
-  "description": "Helpy - dashboard Discord professionnel",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js"
-  },
-  "engines": { "node": ">=20.0.0" },
-  "dependencies": {
-    "discord.js": "^14.25.1",
-    "dotenv": "^16.6.1",
-    "mongoose": "^8.18.0"
-  }
+  "description": "Helpy - dashboard-only Discord moderation bot",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": { "start": "node src/index.js", "dev": "node --watch src/index.js", "register": "node src/register-commands.js" },
+  "engines": { "node": ">=20.11.0" },
+  "dependencies": { "discord.js": "^14.22.1", "dotenv": "^16.6.1", "mongoose": "^8.18.0", "ms": "^2.1.3" }
 }
